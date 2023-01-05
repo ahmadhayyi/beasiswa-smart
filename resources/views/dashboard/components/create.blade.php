@@ -1,0 +1,1 @@
+<a href="/{{ Request::path() }}/create" class="btn-shadow">Tambah</a>
