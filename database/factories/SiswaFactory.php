@@ -17,7 +17,7 @@ class SiswaFactory extends Factory
     public function definition()
     {
         return [
-            'nisn' => fake()->unique()->randomNumber(10, true),
+            'nisn' => fake()->numberBetween(1000000000, 9999999999),
             'nama_lengkap' => fake()->name(),
             'tanggal_lahir' => fake()->date(),
             'jenis_kelamin' => fake()->randomElement(['pria', 'wanita']),
