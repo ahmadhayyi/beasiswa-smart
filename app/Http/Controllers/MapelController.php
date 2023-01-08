@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Mapel;
 use App\Http\Requests\StoreMapelRequest;
 use App\Http\Requests\UpdateMapelRequest;
+use App\Models\Nilai;
 
 class MapelController extends Controller
 {
@@ -88,6 +89,7 @@ class MapelController extends Controller
     public function destroy(Mapel $mapel)
     {
         Mapel::destroy($mapel->id);
+        Nilai::where('mapel_id', $mapel->id)->delete();
         return redirect('/mapel')->with('success', 'Mapel berhasil dihapus!');
     }
 }
