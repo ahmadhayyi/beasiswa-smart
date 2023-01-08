@@ -1,16 +1,12 @@
 @if(session()->has('success'))
-    <div class="alert alert-success alert-close mb-5 text-center">
-        <button class="alert-btn-close">
-            <i class="fad fa-times"></i>
-        </button>
-        <span class="text-sm">{{ session('success') }}</span>
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{ session('success') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
-@else
-    <div class="alert alert-error alert-close mb-5 text-center">
-        <button class="alert-btn-close">
-            <i class="fad fa-times"></i>
-        </button>
-        <span class="text-sm text-red-600">{{ session('failed') }}</span>
+@elseif(session()->has('failed'))
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        {{ session('failed') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
 @endif
 

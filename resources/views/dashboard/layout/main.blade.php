@@ -3,22 +3,26 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="shortcut icon" href="./img/fav.png" type="image/x-icon">
-    <link rel="stylesheet" href="https://kit-pro.fontawesome.com/releases/v5.12.1/css/pro.min.css">
-    <link rel="stylesheet" type="text/css" href="/dashboard/css/style.css">
-    @vite('resources/css/app.css')
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="/dashboard/css/dashboard.css">
     @yield('title')
 </head>
 
-<body class="bg-gray-100">
+<body>
     @include('dashboard.layout.navbar')
-    <div class="flex h-screen flex-row flex-wrap">
+
+    <div class="row">
         @include('dashboard.layout.sidebar')
-        @yield('content')
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+            
+            @yield('heading')
+            @yield('content')
+        </main>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-    <script src="/dashboard/js/script.js"></script>
+
+    @include('dashboard.layout.footer')
 </body>
 
 </html>

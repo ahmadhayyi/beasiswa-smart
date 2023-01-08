@@ -1,1 +1,1 @@
-<button type="submit" class="btn-shadow">Simpan</button>
+<button type="submit" class="btn btn-primary">Simpan</button>
