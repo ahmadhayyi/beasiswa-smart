@@ -17,7 +17,7 @@ class LoginController extends Controller
         ]);
         if(Auth::attempt(['username' => $credentials['username'], 'password' => $credentials['password']])){
              $request->session()->regenerate();
-             return redirect()->intended('/');
+             return redirect()->intended('/home');
          }
          return back()->with('failed', 'username atau password salah!');
     }

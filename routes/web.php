@@ -20,13 +20,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/home', DashboardController::class)->middleware('auth');
+// Route::get('/', DashboardController::class)->middleware('auth');
+// Route::get('/home', DashboardController::class)->middleware('auth');
+Route::controller(DashboardController::class)->group(function () {
+    Route::get('/', 'index');
+    Route::get('/home', 'home')->middleware('auth');
+});
 Route::controller(LoginController::class)->group(function(){
     Route::get('/login', 'index');
     Route::post('/login', 'auth')->name('login');
 });
-Route::resource('/siswa', SiswaController::class);
-Route::resource('/siswa/{siswa:id}/nilai', NilaiController::class);
-Route::resource('/mapel', MapelController::class);
+Route::resource('/siswa', SiswaController::class)->middleware('auth');
+Route::resource('/siswa/{siswa:id}/nilai', NilaiController::class)->middleware('auth');
+Route::resource('/mapel', MapelController::class)->middleware('auth');
 Route::resource('/admin', UserController::class);
 Route::post('/logout', LogoutController::class)->name('logout');

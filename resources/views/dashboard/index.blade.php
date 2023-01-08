@@ -25,15 +25,15 @@
             <p class="card-text h5">{{ $admin }}</p>
         </div>
     </div>
-    <div class="card flex-fill mx-3 py-2 bg-dark text-white">
+    <div class="card flex-fill mx-3 py-2 bg-success text-white">
         <div class="card-body">
-            <h5 class="card-title mb-4">Jumlah Mapel</h5>
+            <h5 class="card-title mb-4">Jumlah Bidikmisi</h5>
             <p class="card-text h5">87</p>
         </div>
     </div>
     <div class="card flex-fill ms-3 py-2 bg-success text-white">
         <div class="card-body">
-            <h5 class="card-title mb-4">Jumlah Admin</h5>
+            <h5 class="card-title mb-4">Jumlah Mapel</h5>
             <p class="card-text h5">87</p>
         </div>
     </div>
