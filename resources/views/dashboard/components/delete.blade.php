@@ -1,4 +1,4 @@
-<form class="d-inline" action="/siswa/{{ $item->id }}" method="POST">
+<form class="d-inline" action="/{{ Request::path() }}/{{ $item->id }}" method="POST">
     @csrf @method('delete')
     <button class="btn btn-danger btn-sm" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $item->id }}"><i class="bi bi-trash-fill"></i></button>
     <div class="modal fade" id="exampleModal{{ $item->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

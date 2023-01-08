@@ -1,7 +1,7 @@
 @extends('dashboard.layout.main')
 
 @section('title')
-
+    <title>Daftar Siswa</title>
 @endsection
 
 @section('heading')

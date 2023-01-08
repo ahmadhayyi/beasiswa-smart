@@ -14,6 +14,12 @@
                 </a>
             </li>
             <li class="nav-item">
+                <a class="nav-link {{ Request::is('mapel*') ? 'active' : '' }}" href="/mapel">
+                    <i class="bi bi-person-fill me-2"></i>
+                    Mapel
+                </a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" href="#">
                     <span data-feather="shopping-cart" class="align-text-bottom"></span>
                     Products

@@ -7,6 +7,8 @@ namespace Database\Seeders;
 use App\Models\Siswa;
 use Illuminate\Database\Seeder;
 
+use function PHPUnit\Framework\callback;
+
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -17,6 +19,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call(UserSeeder::class);
+        $this->call(MapelSeeder::class);
         // $this->call(SiswaSeeder::class);
         Siswa::factory(10)->create();
     }
