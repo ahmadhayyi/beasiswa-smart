@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
         $this->call(UserSeeder::class);
         $this->call(MapelSeeder::class);
         $this->call(NilaiSeeder::class);
+        $this->call(BobotSeeder::class);
         // $this->call(SiswaSeeder::class);
         Siswa::factory(10)->create();
     }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BobotController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
@@ -33,5 +34,6 @@ Route::controller(LoginController::class)->group(function(){
 Route::resource('/siswa', SiswaController::class)->middleware('auth');
 Route::resource('/siswa/{siswa:id}/nilai', NilaiController::class)->middleware('auth');
 Route::resource('/mapel', MapelController::class)->middleware('auth');
+Route::resource('/bobot', BobotController::class)->middleware('auth');
 Route::resource('/admin', UserController::class);
 Route::post('/logout', LogoutController::class)->name('logout');

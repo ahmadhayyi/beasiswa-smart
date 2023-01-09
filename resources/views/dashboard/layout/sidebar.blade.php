@@ -15,8 +15,14 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link {{ Request::is('mapel*') ? 'active' : '' }}" href="/mapel">
-                    <i class="bi bi-person-fill me-2"></i>
+                    <i class="bi bi-front me-2"></i>
                     Mapel
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link {{ Request::is('bobot*') ? 'active' : '' }}" href="/bobot">
+                    <i class="bi bi-basket3-fill me-2"></i>
+                    Bobot
                 </a>
             </li>
         </ul>
