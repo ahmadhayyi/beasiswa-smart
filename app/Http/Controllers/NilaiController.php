@@ -20,7 +20,7 @@ class NilaiController extends Controller
     {
         // return 'halo';
         return view('dashboard.siswa.nilai.index',[
-            'data' => Nilai::where('siswa_id', $siswa->id)->orderBy('mapel_id')->get(),
+            'data' => Nilai::where('siswa_id', $siswa->id)->orderBy('bobot_id')->get(),
         ]);
     }
 

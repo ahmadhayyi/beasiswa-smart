@@ -5,19 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Siswa extends Model
+class Smart extends Model
 {
     use HasFactory;
 
     protected $guarded = ['id'];
 
-    public function nilai()
+    public function siswa()
     {
-        return $this->hasMany(Nilai::class);
-    }
-
-    public function smart()
-    {
-        return $this->hasMany(Smart::class);
+        return $this->belongsTo(Siswa::class);
     }
 }

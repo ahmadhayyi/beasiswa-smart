@@ -61,23 +61,23 @@
                     </thead>
                     <tbody>
                         @foreach ($data as $item)
-                        <tr>
+                        <tr class="{{ $loop->iteration <= $tampil->isi ? 'table-success' : '' }}">
                             <th scope="row justify-content-center">{{ $loop->iteration }}</th>
-                            <td>{{ $item->nisn }}</td>
-                            <td>{{ $item->nama_lengkap }}</td>
-                            <td>{{ $item->jenis_kelamin == 'pria' ? 'Laki-Laki' : 'Perempuan' }}</td>
-                            <td>{{ $item->alamat }}</td>
-                            <td><i class="bi bi-check-circle-fill text-success"></i></td>
+                            <td>{{ $item->siswa->nisn }}</td>
+                            <td>{{ $item->siswa->nama_lengkap }}</td>
+                            <td>{{ $item->siswa->jenis_kelamin == 'pria' ? 'Laki-Laki' : 'Perempuan' }}</td>
+                            <td>{{ $item->siswa->alamat }}</td>
+                            {{-- <td><i class="bi bi-check-circle-fill text-success"></i></td> --}}
                         </tr>
                         @endforeach
                     </tbody>
                     <tfoot>
                         <tr>
                             <th scope="row">#</th>
-                            <th colspan="2">Jumlah Siswa : {{ $data->count() }}</th>
-                            <th colspan="1">Laki-laki : {{ $data->where('jenis_kelamin', 'pria')->count() }}</th>
+                            <th colspan="2">Jumlah Siswa Terpilih : {{ $tampil->isi }}</th>
+                            {{-- <th colspan="1">Laki-laki : {{ $data->where('jenis_kelamin', 'pria')->count() }}</th>
                             <th colspan="1">Perempuan : {{
-                                $data->where('jenis_kelamin', 'wanita')->count() }}</th>
+                                $data->where('jenis_kelamin', 'wanita')->count() }}</th> --}}
                         </tr>
                     </tfoot>
                 </table>

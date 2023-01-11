@@ -2,11 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\Models\Siswa;
+use App\Models\Setting;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class SiswaSeeder extends Seeder
+class SettingSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,6 +15,9 @@ class SiswaSeeder extends Seeder
      */
     public function run()
     {
-        // 
+        Setting::create([
+            'nama' => 'jumlah_beasiswa',
+            'isi' => 2,
+        ]);
     }
 }

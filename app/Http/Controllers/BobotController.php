@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Bobot;
 use App\Http\Requests\StoreBobotRequest;
 use App\Http\Requests\UpdateBobotRequest;
+use App\Models\Nilai;
+use App\Models\Siswa;
 
 class BobotController extends Controller
 {
@@ -38,7 +40,14 @@ class BobotController extends Controller
      */
     public function store(StoreBobotRequest $request)
     {
-        Bobot::create($request->all());
+        $bbt = Bobot::create($request->all());
+        $siswa = Siswa::all();
+        foreach ($siswa as $item) {
+            Nilai::create([
+                'bobot_id' => $bbt->id,
+                'siswa_id' => $item->id,
+            ]);
+        }
         return redirect('/bobot')->with('success', 'Bobot berhasil ditambah!');
     }
 
@@ -88,6 +97,7 @@ class BobotController extends Controller
     public function destroy(Bobot $bobot)
     {
         Bobot::destroy($bobot->id);
+        Nilai::where('bobot_id', $bobot->id)->delete();
         return redirect('/bobot')->with('success', 'Bobot berhasil dihapus!');
     }
 }

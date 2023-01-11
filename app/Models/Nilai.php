@@ -16,8 +16,8 @@ class Nilai extends Model
         return $this->belongsTo(Siswa::class);
     }
 
-    public function mapel()
+    public function bobot()
     {
-        return $this->belongsTo(Mapel::class);
+        return $this->belongsTo(Bobot::class);
     }
 }

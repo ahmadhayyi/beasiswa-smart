@@ -23,6 +23,7 @@
     </div>
 
     @include('dashboard.layout.footer')
+    @yield('footer')
 </body>
 
 </html>

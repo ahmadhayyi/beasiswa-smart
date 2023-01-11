@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateBobotRequest extends FormRequest
+class UpdateSettingRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,10 +24,7 @@ class UpdateBobotRequest extends FormRequest
     public function rules()
     {
         return [
-            'kriteria' => 'required',
-            'bobot' => 'required|numeric|min:0|max:100',
-            'min' => 'required|numeric',
-            'max' => 'required|numeric',
+            'isi' => 'required|numeric',
         ];
     }
 }

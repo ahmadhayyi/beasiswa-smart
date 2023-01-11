@@ -20,6 +20,8 @@
                 <th scope="col">No</th>
                 <th scope="col">Nama Kriteria</th>
                 <th scope="col">Jumlah Bobot</th>
+                <th scope="col">Bobot Minimal</th>
+                <th scope="col">Bobot Maximal</th>
                 <th scope="col">Aksi</th>
             </tr>
         </thead>
@@ -29,6 +31,8 @@
                 <td>{{ $data->firstItem() + $loop->index }}</td>
                 <td>{{ $item->kriteria }}</td>
                 <td>{{ $item->bobot }}</td>
+                <td>{{ $item->min }}</td>
+                <td>{{ $item->max }}</td>
                 <td>
                     @include('dashboard.components.edit')
                     @include('dashboard.components.delete')

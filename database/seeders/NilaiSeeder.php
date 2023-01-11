@@ -13,14 +13,16 @@ class NilaiSeeder extends Seeder
      *
      * @return void
      */
+
     public function run()
     {
-        for ($i=0; $i < 10; $i++) {
-            for ($j=0; $j < 3; $j++) {
+        $nilai = [[85, 95, 85], [94, 81, 91], [92, 91, 95], [93, 86, 87]];
+        for ($i=0; $i < 3; $i++) {
+            for ($j=0; $j < 4; $j++) {
                 Nilai::create([
                     'siswa_id' => $i+1,
-                    'mapel_id' => $j+1,
-                    'nilai' => rand(60, 90),
+                    'bobot_id' => $j+1,
+                    'nilai' => $nilai[$j][$i],
                 ]);
             }
         }

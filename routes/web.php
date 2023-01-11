@@ -6,7 +6,9 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\MapelController;
 use App\Http\Controllers\NilaiController;
+use App\Http\Controllers\SettingController;
 use App\Http\Controllers\SiswaController;
+use App\Http\Controllers\SmartController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -35,5 +37,7 @@ Route::resource('/siswa', SiswaController::class)->middleware('auth');
 Route::resource('/siswa/{siswa:id}/nilai', NilaiController::class)->middleware('auth');
 Route::resource('/mapel', MapelController::class)->middleware('auth');
 Route::resource('/bobot', BobotController::class)->middleware('auth');
+Route::get('/smart', SmartController::class)->middleware('auth');
+Route::resource('/setting', SettingController::class)->middleware('auth');
 Route::resource('/admin', UserController::class);
 Route::post('/logout', LogoutController::class)->name('logout');

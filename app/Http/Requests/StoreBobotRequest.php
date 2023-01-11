@@ -26,6 +26,8 @@ class StoreBobotRequest extends FormRequest
         return [
             'kriteria' => 'required',
             'bobot' => 'required|numeric|min:0|max:100',
+            'min' => 'required|numeric',
+            'max' => 'required|numeric',
         ];
     }
 }

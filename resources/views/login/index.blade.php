@@ -1,66 +1,50 @@
-<!DOCTYPE html>
-<html class="light">
+<!doctype html>
+<html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login - Admin</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet" />
-    @vite('resources/css/app.css')
-    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
-    <script src="/dashboard/js/init-alpine.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Perpustakaan - Login</title>
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="/dashboard/css/login.css" rel="stylesheet">
+    <link rel="shortcut icon" href="/dashboard/img/logo-mv.ico" type="image/x-icon">
 </head>
 
-<body>
-    <div class="flex min-h-screen items-center bg-slate-100 p-6">
-        <div class="mx-auto h-full max-w-lg flex-1 overflow-hidden rounded-lg bg-white border-2 border-slate-200">
-            <div class="flex flex-col overflow-y-auto md:flex-row">
-                <div class="flex items-center justify-center p-6 sm:p-12 md:w-full">
-                    <div class="w-full py-10 px-5">
-                        <h1 class="mb-5 text-2xl text-center font-semibold text-gray-700">
-                            Login Admin
-                        </h1>
-                        @include('dashboard.components.alert')
-                        <form action="{{ route('login') }}" method="post">
-                            @csrf @method('post')
-                            <label class="block text-sm">
-                                <span class="text-gray-700 dark:text-gray-400">Username</span>
-                                <input
-                                    class="mt-2 block w-full rounded-md p-2 outline-none @error('nisn') ring-red-500 @enderror focus:ring-4 focus:border-0 border-2 border-slate-200 bg-gray-50 text-slate-700"
-                                    id="username" name="username" value="{{ old('username') }}" type="text" required autofocus>
-                                @error('username')
-                                <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
-                                @enderror
-                            </label>
-                            <label class="mt-4 block text-sm">
-                                <span class="text-gray-700 dark:text-gray-400">Password</span>
-                                <input
-                                    class="mt-2 block w-full rounded-md p-2 outline-none @error('password') ring-red-500 @enderror focus:ring-4 focus:border-0 border-2 border-slate-200 bg-gray-50 text-slate-700"
-                                    id="password" name="password" value="" type="password" required>
-                                @error('password')
-                                <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
-                                @enderror
-                            </label>
-
-                            <button type="submit"
-                                class="focus:shadow-outline-purple mt-8 block w-full rounded-lg border border-transparent bg-green-600 px-4 py-2 text-center text-sm font-medium leading-5 text-white transition-colors duration-150 hover:bg-green-700 focus:outline-none active:bg-green-600">
-                                Log in
-                            </button>
-                        </form>
-
-                        {{--
-                        <hr class="my-8" />
-
-                        <a href="/login"
-                            class="focus:shadow-outline-gray flex w-full items-center justify-center rounded-lg border border-gray-300 px-4 py-2 text-sm font-medium leading-5 text-gray-700 transition-colors duration-150 hover:border-gray-500 focus:border-gray-500 focus:outline-none active:bg-transparent active:text-gray-500 dark:text-gray-400">
-                            login sebagai siswa
-                        </a> --}}
-                    </div>
+<body class="text-center">
+    <main class="form-signin">
+        <form action="{{ route('login') }}" method="post">
+            @csrf @method('post')
+            @include('dashboard.components.alert')
+            <h1 class="h3 mb-5 fw-normal">Please Sign In</h1>
+            <div class="form-floating">
+                <input type="text" class="form-control @error('username') is-invalid @enderror" name="username"
+                    id="username" placeholder="Username" value="{{ old('username') }}" autofocus required>
+                <label for="username">Username</label>
+                @error('username')
+                <div class="invalid-feedback">
+                    {{ $message }}
                 </div>
+                @enderror
             </div>
-        </div>
-    </div>
+            <div class="form-floating">
+                <input type="password" class="form-control" name="password" id="password" placeholder="Password"
+                    required>
+                <label for="password">Password</label>
+            </div>
+            <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+            {{-- <p class="my-3">Belum mempunyai akun? <a class="text-decoration-none" href="/dashboard/register">daftar
+                    sekarang</a></p> --}}
+            <p class="my-4 text-muted"><small>Beasiswa Apps</small></p>
+        </form>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous">
+    </script>
 </body>
 
 </html>

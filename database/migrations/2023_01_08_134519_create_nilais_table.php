@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('nilais', function (Blueprint $table) {
             $table->id();
             $table->foreignId('siswa_id');
-            $table->foreignId('mapel_id');
-            $table->integer('nilai')->nullable()->default(null);
+            $table->foreignId('bobot_id');
+            $table->integer('nilai')->default(0);
             $table->timestamps();
         });
     }

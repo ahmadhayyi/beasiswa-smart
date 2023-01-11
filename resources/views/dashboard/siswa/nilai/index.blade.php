@@ -20,14 +20,14 @@
             <form action="/{{ Request::path() }}/{{ $data[0]->id }}" method="POST">
             @csrf @method('put')
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Nilai Mapel</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Nilai Bobot</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                     @foreach ($data as $item)
                     <div class="mb-3">
-                        <label for="{{ $item->id }}" class="col-form-label">{{ $item->mapel->nama_mapel }}</label>
-                        <input type="number" class="form-control" name="nilai[{{ $item->id }}]" id="{{ $item->id }}" value="{{ $item->nilai }}">
+                        <label for="{{ $item->id }}" class="col-form-label">{{ $item->bobot->kriteria }}</label>
+                        <input type="number" class="form-control" name="nilai[{{ $item->id }}]" id="{{ $item->id }}" value="{{ $item->nilai }}" required>
                     </div>
                     @endforeach
                 </div>
@@ -46,7 +46,7 @@
     <thead>
         <tr>
             <th scope="col">#</th>
-            <th scope="col">MATA PELAJARAN</th>
+            <th scope="col">NAMA BOBOT</th>
             <th scope="col">NILAI</th>
             {{-- <th scope="col">GRADE</th> --}}
         </tr>
@@ -55,18 +55,17 @@
         @foreach ($data as $key => $item)
         <tr>
             <th scope="row">{{ $loop->iteration }}</th>
-            <td>{{ $item->mapel->nama_mapel }}</td>
+            <td>{{ $item->bobot->kriteria }}</td>
             <td>{{ $item->nilai }}</td>
             {{-- <td>{{ $item->nilai }}</td> --}}
         </tr>
-        @php $avg[$key] = $item->nilai; @endphp
+        @php $sum[$key] = $item->nilai; @endphp
         @endforeach
     </tbody>
     <tfoot>
         <tr>
-            <th colspan="2">RATA-RATA</th>
-            <th>{{ number_format(collect($avg)->avg(), 2)  }}</th>
-            {{-- <th></th> --}}
+            <th colspan="2">JUMLAH BOBOT</th>
+            <th>{{ collect($sum)->sum() != 0 ? collect($sum)->sum() : '' }}</th>
         </tr>
     </tfoot>
 </table>

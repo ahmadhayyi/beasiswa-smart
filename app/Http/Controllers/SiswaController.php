@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Siswa;
 use App\Http\Requests\StoreSiswaRequest;
 use App\Http\Requests\UpdateSiswaRequest;
+use App\Models\Bobot;
 use App\Models\Nilai;
+use App\Models\Smart;
 
 class SiswaController extends Controller
 {
@@ -17,7 +19,7 @@ class SiswaController extends Controller
     public function index()
     {
         return view('dashboard.siswa.index',[
-            'data' => Siswa::paginate(5),
+            'data' => Siswa::paginate(10),
         ]);
     }
 
@@ -40,10 +42,11 @@ class SiswaController extends Controller
     public function store(StoreSiswaRequest $request)
     {
         $siswa = Siswa::create($request->all());
-        for ($i=0; $i < 3; $i++) {
+        $jumlah_bobot = Bobot::count();
+        for ($i=0; $i < $jumlah_bobot; $i++) {
             Nilai::create([
                 'siswa_id' => $siswa->id,
-                'mapel_id' => $i+1,
+                'bobot_id' => $i+1,
             ]);
         }
         return redirect('/siswa')->with('success', 'Siswa berhasil ditambah!');
@@ -96,6 +99,7 @@ class SiswaController extends Controller
     {
         Siswa::destroy($siswa->id);
         Nilai::where('siswa_id', $siswa->id)->delete();
+        Smart::where('siswa_id', $siswa->id)->delete();
         return redirect('/siswa')->with('success', 'Siswa berhasil dihapus!');
     }
 }
