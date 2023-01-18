@@ -15,11 +15,11 @@ class BobotSeeder extends Seeder
      */
     public function run()
     {
-        $min = [80, 81, 91, 81];
-        $max = [95, 94, 98, 93];
-        $bobot = [80, 60, 40, 20];
-        $kode = ['K001', 'K002', 'K003', 'K004'];
-        for ($i=0; $i < 4; $i++) { 
+        $min = [1300, 1300, 600, 0];
+        $max = [1500, 1500, 800, 4];
+        $bobot = [35, 30, 20, 15];
+        $kode = ['Pengetahun', 'Keterampilan', 'Muatan Lokal', 'Kondisi Ekonomi'];
+        for ($i=0; $i < count($kode); $i++) { 
             Bobot::create([
                 'kriteria' => $kode[$i],
                 'bobot' => $bobot[$i],

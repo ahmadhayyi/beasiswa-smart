@@ -19,20 +19,11 @@ class SmartController extends Controller
 
         // FUNCTION
 
-        // Mencari Total
-        // function cariTotal($tabel, $column){
-        //     foreach ($tabel as $key => $value) {
-        //         $total[$key] = $value->$column;
-        //     }
-        //     return collect($total)->sum();
-        // }
-
         function cariTotal($tabel, $column){
             return collect($tabel)->sum($column);
         }
 
         // Normalisasi
-        // $total = DB::table('tabel_nama')->sum('nilai');
         function cariNormalisasi($total_bobot, $bobot, $column){
             foreach ($bobot as $key => $value) {
                 $normalisasi[$key] = $value->$column / $total_bobot;
@@ -44,7 +35,11 @@ class SmartController extends Controller
         function cariUtility($bobot, $data, $min, $max){
             for ($i=0; $i < count($bobot); $i++) {
                 for ($j=0; $j < count($data); $j++) {
-                    $utility[$i][$j] = (($data[$j][$i] - $bobot[$i]->$min) / ($bobot[$i]->$max - $bobot[$i]->$min))*1;
+                    if ($bobot[$i]->$max - $bobot[$i]->$min === 0) {
+                        $utility[$i][$j] = 0;
+                    }else{
+                        $utility[$i][$j] = (($data[$j][$i] - $bobot[$i]->$min) / ($bobot[$i]->$max - $bobot[$i]->$min))*1;
+                    }
                 }
             }
             return $utility;

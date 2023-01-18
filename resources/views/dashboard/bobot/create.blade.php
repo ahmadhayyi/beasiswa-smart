@@ -27,13 +27,13 @@
         <input type="range" class="form-range" min="0" max="100" step="1" id="bobot" name="bobot" value="{{ old('bobot') }}" required>
     </div>
     <div class="col-md-4">
-        <label for="bobot" class="form-label">Bobot Minimal : 50</label>
-        <input type="range" class="form-range" min="0" max="100" step="1" id="bobot" name="min" value="{{ old('min') }}"
+        <label for="bobot" class="form-label">Bobot Minimal : 1000</label>
+        <input type="range" class="form-range" min="0" max="2000" step="1" id="bobot" name="min" value="{{ old('min') }}"
             required>
     </div>
     <div class="col-md-4">
-        <label for="bobot" class="form-label">Bobot Maximal : 50</label>
-        <input type="range" class="form-range" min="0" max="100" step="1" id="bobot" name="max" value="{{ old('max') }}"
+        <label for="bobot" class="form-label">Bobot Maximal : 1000</label>
+        <input type="range" class="form-range" min="0" max="2000" step="1" id="bobot" name="max" value="{{ old('max') }}"
             required>
     </div>
     <div class="col-12 text-end">

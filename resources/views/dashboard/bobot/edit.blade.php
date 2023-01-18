@@ -29,12 +29,12 @@
     </div>
     <div class="col-md-4">
         <label for="bobot" class="form-label">Bobot Minimal : {{ $data->min }}</label>
-        <input type="range" class="form-range" min="0" max="100" step="1" id="bobot" name="min" value="{{ old('min', $data->min) }}"
+        <input type="range" class="form-range" min="0" max="2000" step="1" id="bobot" name="min" value="{{ old('min', $data->min) }}"
             required>
     </div>
     <div class="col-md-4">
         <label for="bobot" class="form-label">Bobot Maximal : {{ $data->max }}</label>
-        <input type="range" class="form-range" min="0" max="100" step="1" id="bobot" name="max" value="{{ old('max', $data->max) }}"
+        <input type="range" class="form-range" min="0" max="2000" step="1" id="bobot" name="max" value="{{ old('max', $data->max) }}"
             required>
     </div>
     <div class="col-12 text-end">

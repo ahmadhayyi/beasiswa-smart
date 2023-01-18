@@ -16,7 +16,7 @@
             <li class="nav-item">
                 <a class="nav-link {{ Request::is('bobot*') ? 'active' : '' }}" href="/bobot">
                     <i class="bi bi-basket3-fill me-2"></i>
-                    Bobot
+                    Kriteria
                 </a>
             </li>
             <li class="nav-item">
