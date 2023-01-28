@@ -17,7 +17,7 @@
         <form action="{{ route('login') }}" method="post">
             @csrf @method('post')
             @include('dashboard.components.alert')
-            <h1 class="h3 mb-5 fw-normal">Please Sign In</h1>
+            <h1 class="h3 mb-5 fw-normal">Login Admin</h1>
             <div class="form-floating">
                 <input type="text" class="form-control @error('username') is-invalid @enderror" name="username"
                     id="username" placeholder="Username" value="{{ old('username') }}" autofocus required>
