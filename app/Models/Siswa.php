@@ -11,7 +11,7 @@ class Siswa extends Model
 
     protected $guarded = ['id'];
 
-    public function nilai()
+    public function nilais()
     {
         return $this->hasMany(Nilai::class);
     }
@@ -19,5 +19,10 @@ class Siswa extends Model
     public function smart()
     {
         return $this->hasMany(Smart::class);
+    }
+
+    public function jurusan()
+    {
+        return $this->belongsTo(Jurusan::class);
     }
 }

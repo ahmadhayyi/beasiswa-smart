@@ -15,9 +15,10 @@ return new class extends Migration
     {
         Schema::create('siswas', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('jurusan_id');
             $table->string('nisn')->unique();
             $table->string('nama_lengkap');
-            $table->string('tanggal_lahir');
+            $table->date('tanggal_lahir');
             $table->enum('jenis_kelamin', ['pria', 'wanita']);
             $table->text('alamat');
             $table->timestamps();

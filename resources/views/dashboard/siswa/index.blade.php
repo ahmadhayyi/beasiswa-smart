@@ -32,7 +32,7 @@
                 <th scope="col">Nama Lengkap</th>
                 <th scope="col">Tanggal Lahir</th>
                 <th scope="col">Jenis Kelamin</th>
-                {{-- <th scope="col">Alamat</th> --}}
+                <th scope="col">Jurusan</th>
                 <th scope="col">Aksi</th>
             </tr>
         </thead>
@@ -44,7 +44,7 @@
                 <td>{{ $item->nama_lengkap }}</td>
                 <td>{{ date('d-m-Y',strtotime($item->tanggal_lahir)) }}</td>
                 <td>{{ $item->jenis_kelamin == 'pria' ? 'Laki-laki' : 'Perempuan' }}</td>
-                {{-- <td>{{ $item->alamat }}</td> --}}
+                <td class="text-uppercase">{{ $item->jurusan->nama }}</td>
                 <td>
                     <a class="btn btn-primary btn-sm" href="/siswa/{{ $item->id }}/nilai"><i class="bi bi-star-fill"></i></a>
                     @include('dashboard.components.edit')

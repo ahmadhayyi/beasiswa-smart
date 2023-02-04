@@ -24,7 +24,8 @@ class UpdateSiswaRequest extends FormRequest
     public function rules()
     {
         return [
-            'nisn' => 'required|unique:siswas,nisn,'. $this->siswa->id .',id|digits:10',
+            'nisn' => 'required|unique:siswas,nisn,'. $this->siswa->nisn .',nisn|digits:10',
+            'jurusan_id' => 'required',
             'nama_lengkap' => 'required',
             'tanggal_lahir' => 'required|date',
             'jenis_kelamin' => 'required|in:pria,wanita',

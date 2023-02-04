@@ -47,6 +47,8 @@
             </div>
 
             <p class="h4 my-5"><mark># Daftar Siswa Terpilih</mark></p>
+            
+            <p class="h4 my-3">IPA</p>
 
             <div class="p-5 mb-4 mt-5 border bg-light rounded-3">
                 <table class="table table-borderless">
@@ -60,8 +62,8 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($data as $item)
-                        <tr class="{{ $loop->iteration <= $tampil->isi ? 'table-success' : '' }}">
+                        @foreach ($data1 as $item)
+                        <tr class="{{ $loop->iteration <= $jumlah1 ? 'table-success' : '' }}">
                             <th scope="row justify-content-center">{{ $loop->iteration }}</th>
                             <td>{{ $item->siswa->nisn }}</td>
                             <td>{{ $item->siswa->nama_lengkap }}</td>
@@ -74,10 +76,84 @@
                     <tfoot>
                         <tr>
                             <th scope="row">#</th>
-                            <th colspan="2">Jumlah Siswa Terpilih : {{ $tampil->isi }}</th>
-                            {{-- <th colspan="1">Laki-laki : {{ $data->where('jenis_kelamin', 'pria')->count() }}</th>
+                            <th colspan="2">Jumlah Siswa Terpilih : {{ $jumlah1 }}</th>
+                            {{-- <th colspan="1">Laki-laki : {{ $1->where('jenis_kelamin', 'pria')->count() }}</th>
                             <th colspan="1">Perempuan : {{
-                                $data->where('jenis_kelamin', 'wanita')->count() }}</th> --}}
+                                $1->where('jenis_kelamin', 'wanita')->count() }}</th> --}}
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+
+            <p class="h4 my-3">IPS</p>
+
+            <div class="p-5 mb-4 mt-5 border bg-light rounded-3">
+                <table class="table table-borderless">
+                    <thead>
+                        <tr class="">
+                            <th scope="col">#</th>
+                            <th scope="col">NISN</th>
+                            <th scope="col">NAMA</th>
+                            <th scope="col">JENIS KELAMIN</th>
+                            <th scope="col">ALAMAT</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($data2 as $item)
+                        <tr class="{{ $loop->iteration <= $jumlah2 ? 'table-success' : '' }}">
+                            <th scope="row justify-content-center">{{ $loop->iteration }}</th>
+                            <td>{{ $item->siswa->nisn }}</td>
+                            <td>{{ $item->siswa->nama_lengkap }}</td>
+                            <td>{{ $item->siswa->jenis_kelamin == 'pria' ? 'Laki-Laki' : 'Perempuan' }}</td>
+                            <td>{{ $item->siswa->alamat }}</td>
+                            {{-- <td><i class="bi bi-check-circle-fill text-success"></i></td> --}}
+                        </tr>
+                        @endforeach
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th scope="row">#</th>
+                            <th colspan="2">Jumlah Siswa Terpilih : {{ $jumlah2 }}</th>
+                            {{-- <th colspan="1">Laki-laki : {{ $1->where('jenis_kelamin', 'pria')->count() }}</th>
+                            <th colspan="1">Perempuan : {{
+                                $1->where('jenis_kelamin', 'wanita')->count() }}</th> --}}
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+
+            <p class="h4 my-3">KEAGAMAAN</p>
+
+            <div class="p-5 mb-4 mt-5 border bg-light rounded-3">
+                <table class="table table-borderless">
+                    <thead>
+                        <tr class="">
+                            <th scope="col">#</th>
+                            <th scope="col">NISN</th>
+                            <th scope="col">NAMA</th>
+                            <th scope="col">JENIS KELAMIN</th>
+                            <th scope="col">ALAMAT</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($data3 as $item)
+                        <tr class="{{ $loop->iteration <= $jumlah3 ? 'table-success' : '' }}">
+                            <th scope="row justify-content-center">{{ $loop->iteration }}</th>
+                            <td>{{ $item->siswa->nisn }}</td>
+                            <td>{{ $item->siswa->nama_lengkap }}</td>
+                            <td>{{ $item->siswa->jenis_kelamin == 'pria' ? 'Laki-Laki' : 'Perempuan' }}</td>
+                            <td>{{ $item->siswa->alamat }}</td>
+                            {{-- <td><i class="bi bi-check-circle-fill text-success"></i></td> --}}
+                        </tr>
+                        @endforeach
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th scope="row">#</th>
+                            <th colspan="2">Jumlah Siswa Terpilih : {{ $jumlah3 }}</th>
+                            {{-- <th colspan="1">Laki-laki : {{ $1->where('jenis_kelamin', 'pria')->count() }}</th>
+                            <th colspan="1">Perempuan : {{
+                                $1->where('jenis_kelamin', 'wanita')->count() }}</th> --}}
                         </tr>
                     </tfoot>
                 </table>

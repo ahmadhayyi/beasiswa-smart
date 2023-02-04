@@ -6,6 +6,7 @@ use App\Models\Siswa;
 use App\Http\Requests\StoreSiswaRequest;
 use App\Http\Requests\UpdateSiswaRequest;
 use App\Models\Bobot;
+use App\Models\Jurusan;
 use App\Models\Nilai;
 use App\Models\Smart;
 
@@ -30,7 +31,9 @@ class SiswaController extends Controller
      */
     public function create()
     {
-        return view('dashboard.siswa.create');
+        return view('dashboard.siswa.create',[
+            'jurusan' => Jurusan::all(),
+        ]);
     }
 
     /**
@@ -73,6 +76,7 @@ class SiswaController extends Controller
     {
         return view('dashboard.siswa.edit',[
             'data' => $siswa,
+            'jurusan' => Jurusan::all(),
         ]);
     }
 

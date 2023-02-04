@@ -31,7 +31,7 @@
         </div>
         @enderror
     </div>
-    <div class="col-md-6">
+    <div class="col-md-4">
         <label for="tanggal_lahir" class="form-label">Tanggal Lahir</label>
         <input type="date" class="form-control @error('tanggal_lahir') is-invalid @enderror" id="tanggal_lahir" name="tanggal_lahir" value="{{ old('tanggal_lahir') }}" required>
         @error('tanggal_lahir')
@@ -40,13 +40,26 @@
         </div>
         @enderror
     </div>
-    <div class="col-md-6">
+    <div class="col-md-4">
         <label for="jenis_kelamin" class="form-label">Jenis Kelamin</label>
         <select id="jenis_kelamin" class="form-select @error('jenis_kelamin') is-invalid @enderror" name="jenis_kelamin">
-            <option value="pria">Laki-laki</option>
-            <option value="wanita">Perempuan</option>
+            <option value="pria" @selected(old('jenis_kelamin') == "pria")>Laki-laki</option>
+            <option value="wanita" @selected(old('jenis_kelamin') == "wanita")>Perempuan</option>
         </select>
         @error('jenis_kelamin')
+        <div class="invalid-feedback">
+            {{ $message }}}
+        </div>
+        @enderror
+    </div>
+    <div class="col-md-4">
+        <label for="jurusan_id" class="form-label">Jurusan</label>
+        <select id="jurusan_id" class="form-select @error('jurusan_id') is-invalid @enderror text-uppercase" name="jurusan_id">
+            @foreach ($jurusan as $item)
+            <option class="text-uppercase" value="{{ $item->id }}" @selected(old('jurusan_id') == $item->id)>{{ $item->nama }}</option>
+            @endforeach
+        </select>
+        @error('jurusan_id')
         <div class="invalid-feedback">
             {{ $message }}}
         </div>

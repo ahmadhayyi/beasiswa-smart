@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateSettingRequest extends FormRequest
+class UpdateJurusanRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +24,8 @@ class UpdateSettingRequest extends FormRequest
     public function rules()
     {
         return [
-            'isi' => 'required|numeric',
+            'nama' => 'required|unique:jurusans,nama,'. $this->jurusan->nama .',nama',
+            'beasiswa' => 'required|integer',
         ];
     }
 }

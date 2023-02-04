@@ -33,8 +33,8 @@
     </div>
     <div class="card flex-fill ms-3 py-2 bg-secondary text-white">
         <div class="card-body">
-            <h5 class="card-title mb-4">Jumlah Beasiswa</h5>
-            <p class="card-text h5">{{ $setting->isi }}</p>
+            <h5 class="card-title mb-4">Jumlah Jurusan</h5>
+            <p class="card-text h5">{{ $jurusan }}</p>
         </div>
     </div>
 </div>

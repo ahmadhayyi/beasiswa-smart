@@ -2,10 +2,11 @@
 
 use App\Http\Controllers\BobotController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\JurusanController;
+use App\Http\Controllers\JurusanSmartController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\NilaiController;
-use App\Http\Controllers\SettingController;
 use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\SmartController;
 use App\Http\Controllers\UserController;
@@ -22,8 +23,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', DashboardController::class)->middleware('auth');
-// Route::get('/home', DashboardController::class)->middleware('auth');
 Route::controller(DashboardController::class)->group(function () {
     Route::get('/', 'index');
     Route::get('/home', 'home')->middleware('auth');
@@ -33,9 +32,10 @@ Route::controller(LoginController::class)->group(function(){
     Route::post('/login', 'auth')->name('login');
 });
 Route::resource('/siswa', SiswaController::class)->middleware('auth');
+Route::resource('/jurusan', JurusanController::class)->middleware('auth');
+Route::get('/jurusan/{jurusan:id}/smart', JurusanSmartController::class)->middleware('auth');
 Route::resource('/siswa/{siswa:id}/nilai', NilaiController::class)->middleware('auth');
 Route::resource('/bobot', BobotController::class)->middleware('auth');
 Route::get('/smart', SmartController::class)->middleware('auth');
-Route::resource('/setting', SettingController::class)->middleware('auth');
 Route::resource('/admin', UserController::class);
 Route::post('/logout', LogoutController::class)->name('logout');

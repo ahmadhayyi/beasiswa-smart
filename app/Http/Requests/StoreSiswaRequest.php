@@ -25,6 +25,7 @@ class StoreSiswaRequest extends FormRequest
     {
         return [
             'nisn' => 'required|unique:siswas,nisn|digits:10',
+            'jurusan_id' => 'required',
             'nama_lengkap' => 'required',
             'tanggal_lahir' => 'required|date',
             'jenis_kelamin' => 'required|in:pria,wanita',

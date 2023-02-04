@@ -11,6 +11,8 @@ class Smart extends Model
 
     protected $guarded = ['id'];
 
+    protected $with = (['siswa']);
+
     public function siswa()
     {
         return $this->belongsTo(Siswa::class);

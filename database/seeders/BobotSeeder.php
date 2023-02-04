@@ -18,7 +18,7 @@ class BobotSeeder extends Seeder
         $min = [1300, 1300, 600, 0];
         $max = [1500, 1500, 800, 4];
         $bobot = [35, 30, 20, 15];
-        $kode = ['Pengetahun', 'Keterampilan', 'Muatan Lokal', 'Kondisi Ekonomi'];
+        $kode = ['Pengetahuan', 'Keterampilan', 'Muatan Lokal', 'Kondisi Ekonomi'];
         for ($i=0; $i < count($kode); $i++) { 
             Bobot::create([
                 'kriteria' => $kode[$i],
